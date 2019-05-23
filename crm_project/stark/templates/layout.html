@@ -1,0 +1,109 @@
+{% load staticfiles %}
+{% load rbac_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stark组件</title>
+    <link rel="shortcut icon" href="{% static 'stark/imgs/luffy-study-logo.png' %} ">
+    <link rel="stylesheet" href="{% static 'stark/plugins/bootstrap/css/bootstrap.css' %} "/>
+    <link rel="stylesheet" href="{% static 'stark/plugins/font-awesome/css/font-awesome.css' %} "/>
+    <link rel="stylesheet" href="{% static 'stark/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css' %} "/>
+    <link rel="stylesheet" href="{% static 'stark/css/commons.css' %} "/>
+    <link rel="stylesheet" href="{% static 'stark/css/nav.css' %} "/>
+    <link rel="stylesheet" href="{% static 'stark/css/search-group.css' %}">
+    <link rel="stylesheet" href="{% static 'stark/rbac/css/rbac.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+<div class="pg-header">
+    <div class="nav">
+        <div class="logo-area left">
+            <a href="#">
+                <img class="logo img-circle" src="{% static 'stark/imgs/pic.jpg' %}">
+                <span style="font-size: 18px;">Stark组件 </span>
+            </a>
+        </div>
+
+        <div class="left-menu left">
+            <a class="menu-item">management</a>
+            <a class="menu-item">management</a>
+            <a class="menu-item">management</a>
+            <div class="menu-item">
+                <span>使用说明</span>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                <div class="more-info">
+                    <a href="#" class="more-item">管他什么菜单</a>
+                    <a href="#" class="more-item">实在是编不了</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-menu right clearfix">
+
+            <div class="user-info right">
+                <a href="#" class="avatar">
+                    <img class="img-circle" style="width: 40px;height: 40px" src="{% static 'stark/imgs/lolita.jpg' %}">
+                </a>
+
+                <div class="more-info">
+                    <a href="#" class="more-item">个人信息</a>
+                    <a href="#" class="more-item">注销</a>
+                </div>
+            </div>
+
+            <a class="user-menu right">
+                information
+                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <span class="badge bg-success">0</span>
+            </a>
+
+            <a class="user-menu right">
+                notification
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <span class="badge bg-success">0</span>
+            </a>
+
+            <a class="user-menu right">
+                mission
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                <span class="badge bg-danger">0</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+<div class="pg-body">
+    <div class="left-menu">
+        <div class="menu-body">
+            {% multi_menu request %}
+        </div>
+    </div>
+    <div class="right-body">
+                {% url_record request %}
+        {% block content %} {% endblock %}
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'stark/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'stark/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'stark/plugins/datetimepicker/js/bootstrap-datetimepicker.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'stark/plugins/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js' %}"></script>
+<script type="text/javascript" src="{% static 'stark/rbac/js/rbac.js' %}"></script>
+<script type="text/javascript">
+     $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        minView: "month",
+        sideBySide: true,
+		format: 'yyyy-mm-dd',
+		bootcssVer: 3,
+		startDate: new Date(),
+		autoclose: true,
+        pickerPosition: "bottom-left"
+    });
+</script>
+{% block js %} {% endblock %}
+</body>
+</html>

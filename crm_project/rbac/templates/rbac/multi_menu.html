@@ -1,0 +1,22 @@
+{#二级菜单#}
+<div class="multi-menu">
+    {% for item in ordered_dict.values %}
+        <div class="item">
+            <a class="title"><span class="icon-wrap"><i class="fa {{ item.icon }}"></i></span>{{ item.title }}</a>
+            <div class="body {{ item.class }}">
+                {% for per in item.children %}
+                    <a class="{{ per.class }}" href="{{ per.url }}">{{ per.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+
