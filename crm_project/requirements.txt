@@ -1,7 +1,7 @@
 certifi==2018.11.29
 cffi==1.11.5
 chardet==3.0.4
-Django==2.1.9
+Django==2.2.10
 docx==0.2.4
 get==2018.11.19
 gevent==1.4.0
