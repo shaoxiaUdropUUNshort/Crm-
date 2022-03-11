@@ -7,7 +7,7 @@ get==2018.11.19
 gevent==1.4.0
 greenlet==0.4.15
 idna==2.8
-Pillow==5.3.0
+Pillow==9.0.1
 post==2018.11.20
 public==2018.11.20
 pycparser==2.19
